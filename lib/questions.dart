@@ -30,13 +30,9 @@ class _Questions extends State<Questions> {
               ),
             ),
           const SizedBox(height: 30),
-          OptionButton(questionsList[0].options[0]),
-          const SizedBox(height: 10),
-          OptionButton(questionsList[0].options[1]),
-          const SizedBox(height: 10),
-          OptionButton(questionsList[0].options[2]),
-          const SizedBox(height: 10),
-          OptionButton(questionsList[0].options[3]),
+          ...questionsList[0].options.map((item){
+            return OptionButton(item);
+          })
         ],
       ),
     );
