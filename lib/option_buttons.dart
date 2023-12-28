@@ -7,14 +7,17 @@ class OptionButton extends StatelessWidget{
 
   @override
   Widget build(context){
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color.fromARGB(255, 247, 151, 6),
-        foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 50)
-      ),
-      onPressed: () {}, 
-      child: Text(answer)
-      );
+    return Container(
+      margin:const EdgeInsets.symmetric(vertical: 10),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color.fromARGB(255, 247, 151, 6),
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 50),
+        ),
+        onPressed: () {}, 
+        child: Text(answer)
+        ),
+    );
   }
 }
