@@ -34,7 +34,7 @@ class _Questions extends State<Questions> {
               textAlign: TextAlign.center,
               ),
             const SizedBox(height: 30),
-            ...questionsList[0].options.map((item){
+            ...questionsList[0].getShuffleList().map((item){
               return OptionButton(item);
             })
           ],
