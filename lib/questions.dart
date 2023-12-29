@@ -14,6 +14,14 @@ class Questions extends StatefulWidget {
 class _Questions extends State<Questions> {
   final questionsList = questions;
 
+  var currentQuestionNumber = 0;
+
+  void changeQuestionNumber(){
+    setState(() {
+      currentQuestionNumber++;
+    });
+  }
+
   @override
   Widget build(context) {
     return Container(
@@ -25,7 +33,7 @@ class _Questions extends State<Questions> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              questionsList[0].question,
+              questionsList[currentQuestionNumber].question,
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -34,8 +42,8 @@ class _Questions extends State<Questions> {
               textAlign: TextAlign.center,
               ),
             const SizedBox(height: 30),
-            ...questionsList[0].getShuffleList().map((item){
-              return OptionButton(item);
+            ...questionsList[currentQuestionNumber].getShuffleList().map((item){
+              return OptionButton(item,changeQuestionNumber);
             })
           ],
         ),

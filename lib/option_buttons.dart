@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class OptionButton extends StatelessWidget{
   final String answer;
 
-  const OptionButton(this.answer,{super.key});
+  OptionButton(this.answer,this.changeQuestionNumber,{super.key});
+
+  void Function() changeQuestionNumber;
 
   @override
   Widget build(context){
@@ -15,8 +17,8 @@ class OptionButton extends StatelessWidget{
           foregroundColor: Colors.white,
           padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 50),
         ),
-        onPressed: () {}, 
-        child: Text(answer)
+        onPressed:changeQuestionNumber, 
+        child: Text(answer,textAlign: TextAlign.center,)
         ),
     );
   }
