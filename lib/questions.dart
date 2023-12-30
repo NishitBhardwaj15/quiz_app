@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/option_buttons.dart';
 import 'package:quiz_app/data/questions_data.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Questions extends StatefulWidget {
-  const Questions({super.key});
+  const Questions(this.setSelectedAns,{super.key});
+
+  final void Function(String ans) setSelectedAns;
 
   @override
   State<Questions> createState() {
@@ -16,10 +19,12 @@ class _Questions extends State<Questions> {
 
   var currentQuestionNumber = 0;
 
-  void changeQuestionNumber(){
+  void changeQuestionNumber(String ans){
     setState(() {
       currentQuestionNumber++;
     });
+
+    widget.setSelectedAns(ans);
   }
 
   @override
@@ -34,11 +39,16 @@ class _Questions extends State<Questions> {
           children: [
             Text(
               questionsList[currentQuestionNumber].question,
-              style: const TextStyle(
+              style: GoogleFonts.montserrat(
                 color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                ),
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+              ),
+              // style: const TextStyle(
+              //   color: Colors.white,
+              //   fontSize: 18,
+              //   fontWeight: FontWeight.bold,
+              //   ),
               textAlign: TextAlign.center,
               ),
             const SizedBox(height: 30),
